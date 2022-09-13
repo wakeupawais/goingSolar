@@ -1,0 +1,21 @@
+@import "./breakporintMixin";
+
+.container {
+  z-index: 100;
+  // position: relative;
+  width: 90%;
+  max-width: 1290px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  @include ipad {
+    width: 95%;
+  }
+
+  @include desktop {
+    width: 90%;
+    max-width: 1290px;
+  }
+
+}

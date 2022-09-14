@@ -57,12 +57,12 @@
               </div>
             </div>
             <div class="question-list">
-              <div class="question" id="question-1">
+              <div class="question showQuestion" id="question-1">
                 <p class="question-text">Do you OWN or RENT your home?</p>
                 <div class="radio-box-list">
                   <label class="radio-box">
                     <input 
-                      name="electricityBill"
+                      name="ownHome"
                       type="radio"
                       value="Own"
                     >
@@ -73,7 +73,7 @@
                   </label>
                   <label class="radio-box">
                     <input 
-                      name="electricityBill"
+                      name="ownHome"
                       type="radio"
                       value="Rent"
                     >
@@ -82,9 +82,177 @@
                       <span>Rent</span>
                     </div>
                   </label>
+                  <span id="ownHome-error" class="error"></span>
                 </div>
               </div>
-              <button type="button" id="submitButton">Submit</button>
+              <div class="question hideQuestion" id="question-2">
+                <p class="question-text">What type of home do you have?</p>
+                <div class="radio-box-list">
+                  <label class="radio-box">
+                    <input 
+                      name="typeOfHome"
+                      type="radio"
+                      value="Single-Family Home"
+                    >
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/house-1637108791810.png" alt="">
+                      <span>Single-Family Home</span>
+                    </div>
+                  </label>
+                  <label class="radio-box">
+                    <input 
+                      name="typeOfHome"
+                      type="radio"
+                      value="Condo/Town-home"
+                    >
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/condo-1637109092704.png" alt="">
+                      <span>Condo/Town-home</span>
+                    </div>
+                  </label>
+                  <label class="radio-box">
+                    <input 
+                      name="typeOfHome"
+                      type="radio"
+                      value="Mobile Home"
+                    >
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/mobile-1637109176413.png" alt="">
+                      <span>Mobile Home</span>
+                    </div>
+                  </label>
+                </div>
+                <span class="error" id="typeOfHome-error"></span>
+              </div>
+              <div class="question hideQuestion" id="question-3">
+                <p class="question-text">What is Your Zipcode?</p>
+                <p class="question-sub-text">We'll check for additional local and federal solar incentives in your area.</p>
+                <div class="text-inputWrapper">
+                  <input type="text" class="text-input" name="zipcode" placeholder="Enter ZIP">
+                  <span class="error" id="zipcode-error"></span>
+                  <button class="next-button" type="button">Next</button>
+                </div>
+              </div>
+              <div class="question hideQuestion" id="question-4">
+                <p class="question-text">What is your average monthly electric bill?</p>
+                <div class="radio-box-list">
+                  <label class="radio-box">
+                    <input name="averageElectricBill" type="radio" value="0-$150">
+                    <span>0-$150</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="averageElectricBill" type="radio" value="$151-$200">
+                    <span>$151-$200</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="averageElectricBill" type="radio" value="$201-$300">
+                    <span>$201-$300</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="averageElectricBill" type="radio" value="$301+">
+                    <span>$301+</span>
+                  </label>
+                </div>
+                <span class="error" id="averageElectricBill-error"></span>
+              </div>
+              <div class="question hideQuestion" id="question-5">
+                <p class="question-text">Enter your address to find the best results for your area.</p>
+              
+                <div class="text-inputWrapper">
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="address" placeholder="Enter Street Address">
+                    <span class="error" id="address-error"></span>
+                  </div>
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="city" placeholder="Enter City">
+                    <span class="error" id="city-error"></span>
+                  </div>
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="state" placeholder="Enter State">
+                    <span class="error" id="state-error"></span>
+                  </div>
+                  <button class="next-button" type="button">Contine</button>
+                </div>
+              </div>
+              <div class="question hideQuestion" id="question-6">
+                <p class="question-text">Enter your name so we know who we are sending our results to.</p>
+              
+                <div class="text-inputWrapper">
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="firstname" placeholder="First Name">
+                    <span class="error" id="firstname-error"></span>
+                  </div>
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="lastname" placeholder="Last Name">
+                    <span class="error" id="lastname-error"></span>
+                  </div>
+                  <button class="next-button" type="button">Contine</button>
+                </div>
+              </div>
+              <div class="question hideQuestion" id="question-7">
+                <p class="question-text">Where can we send your results and provide next steps?</p>
+              
+                <div class="text-inputWrapper">
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="email" placeholder="Enter Email">
+                    <span class="error" id="email-error"></span>
+                  </div>
+                  <div style="width: 100%;">
+                    <input type="text" class="text-input" name="phonenumber" placeholder="Enter Phone Numner">
+                    <span class="error" id="phonenumber-error"></span>
+                  </div>
+                  <button class="next-button" type="button">Contine</button>
+                </div>
+              </div>
+              <div class="question hideQuestion" id="question-8">
+                <p class="question-text" id="congrates-text">Congrats adfsd! You qualify! Answer a few more questions to see if you qualify for the Cash Bonus.</p>
+                <p class="question-sub-text" style="padding-top: 2rem; font-size: 1.2rem">
+                  Is Your Roof Shaded By Trees?
+                </p>
+                <div class="radio-box-list">
+                  <label class="radio-box">
+                    <input name="roofyShadedByTress" type="radio" value="No Shade">
+                    <span>No Shade</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="roofyShadedByTress" type="radio" value="Slide Shade">
+                      <span>Slide Shade</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="roofyShadedByTress" type="radio" value="Completely Shaded">
+                      <span>Completely Shaded</span>
+                  </label>
+                </div>
+                <span id="roofyShadedByTress-error" class="error"></span>
+              </div>
+              <div class="question hideQuestion" id="question-9">
+                <p class="question-text">Is Your Credit Score Above or Below 640?</p>
+              
+                <div class="radio-box-list">
+                  <label class="radio-box">
+                    <input name="creditScore" type="radio" value="Yes, it is above 640">
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/above-640-1621888005919.png" alt="">
+                      <span>Yes, it is above 640</span>
+                    </div>
+                  </label>
+                  <label class="radio-box">
+                    <input name="creditScore" type="radio" value="No, it is below 640">
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/below-640-1621888022300.png" alt="">
+                      <span>No, it is below 640</span>
+                    </div>
+                  </label>
+                  
+                </div>
+                <span id="creditScore-error" class="error"></span>
+              </div>
+            </div>
+
+            <div class="thankyouPage">
+              <span class="thanyou-text">Thankyou</span>
+              <h1 class="thankyou-heading"></h1>
+              <p>We will call you shortly to see how much going solar can save you on your electric bill!!</p>
             </div>
           </div>
         </div>

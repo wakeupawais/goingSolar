@@ -33,6 +33,17 @@ h1, h2, h3 {
   line-height: 1.2em;
 }
 
+button {
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  filter: brightness(100%);
+  transition: filter 0.2s ease;
+
+  &:hover {
+    filter: brightness(92%);
+  }
+}
+
 .main {
   background-image: url("./images/Top-header-background.png");
   background-color: rgba(7, 20, 86, 0.79);
@@ -41,7 +52,6 @@ h1, h2, h3 {
 nav {
   padding-block: 1rem;
   height: 100px;
-  // background-color: red;
   display: flex;
   align-items: center;
 }
@@ -151,7 +161,7 @@ nav {
 
   background-color: white;
   width: 100%;
-  height: 600px;
+  // height: 700px;
   padding-inline: 2rem;
   padding-block: 2rem;
   display: flex;
@@ -164,7 +174,7 @@ nav {
   }
   
   @include desktop {
-    height: 600px;
+    // height: 700px;
     padding-inline: 2.8rem;
     padding-block: 2.8rem;
   }
@@ -183,10 +193,12 @@ nav {
   background-color: #f5f5f5;
   box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
+  overflow: hidden;
 }
 
 .progress-bar__progress {
-  width: 60%;
+  // width: 60%;
+  height: 100%;
   background-color: var(--accent-color);
 }
 
@@ -204,6 +216,11 @@ nav {
     @include desktop {
       // text-align: start;
     }
+  }
+
+  .question-sub-text {
+    padding-top: 10px;
+    text-align: center;
   }
 }
 
@@ -235,6 +252,15 @@ nav {
   padding-block: 1.5rem;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  transform: translateY(0);
+  transition: box-shadow 0.2s ease-in, 
+              transform 0.2s ease, top 0.2s ease;
+  
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  }
 
   input {
     display: none;
@@ -242,11 +268,23 @@ nav {
   span {
     width: 100%;
     display: block;
+    font-weight: 600;
+    font-size: 1.2rem;
   }
 }
 
 .radio-box__image {
   margin-inline: auto;
+
+  span {
+    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  input {
+    display: none;
+  }
   // width: 100%;
   // display: flex;
   // flex-direction: column;
@@ -261,8 +299,67 @@ nav {
   background-size: cover;
 }
 
+.text-inputWrapper {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
 
+.text-input {
+  border: 1px solid rgb(168, 168, 168);
+  padding: 1.4rem 1rem;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: rgb(44, 44, 44);
 
+  &.error-input {
+    border-color: red;
+  }
+}
+
+.next-button {
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+.error {
+  font-style: italic;
+  color: red;
+  margin-top: 5px;
+  display: block;
+}
+
+.thankyouPage {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  margin-top: -1rem;
+  
+
+  p {
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+}
+
+.thanyou-text {
+  font-size: 1.3rem;
+}
+
+.thankyou-heading {
+  font-size: 3rem;
+  line-height: 3rem;
+}
 /******* Second Section Start *******/
 .second-section {
   padding-top: var(--section-margin);

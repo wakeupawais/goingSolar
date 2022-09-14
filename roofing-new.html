@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <title>Valor Roofing - Free Inspection</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    .hero-card {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1rem;
+      /* max-width: 300pxz/; */
+    }
+
+    .logo-image {
+      width: 250px;
+      /* height: 250px; */
+    }
+
+    .logo-image img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      z-index: 100;
+      width: 90%;
+      max-width: 1290px;
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        width: 95%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        width: 70%;
+        max-width: 1290px;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body,
+    input,
+    *::after,
+    *::before,
+    button {
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      /* Change color AwaisColorHere */
+      --accent-color: #349dff;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .survey-container {
+      margin-top: 4rem;
+      border: 1px dotted gray;
+      -webkit-box-shadow: 0 0 60px #30303025 !important;
+      box-shadow: 0 0 60px #30303025 !important;
+      background-color: white !important;
+      width: 100%;
+    }
+
+    .question {
+      padding: 1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .question h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .question input[type="text"],
+    .question select {
+      width: 100%;
+      outline: none;
+      border: 1px solid #c2c2c2;
+      border-radius: 5px;
+      padding: 1rem;
+    }
+
+    .question input[type="text"]:focus {
+      border-color: gray;
+    }
+
+    .next-previous-bar {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin-top: 1rem;
+      background-color: var(--accent-color);
+      padding: 1rem;
+    }
+
+    .next-previous-bar button {
+      cursor: pointer;
+      font-size: 1rem;
+      color: white;
+      border: none;
+      background-color: transparent;
+      padding: 7px 15px;
+    }
+
+    .error {
+      color: #d10000;
+      font-style: italic;
+    }
+
+    .showQuestion {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .hideQuestion {
+      display: none;
+    }
+
+    .radio-container {
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .radio-container div {
+      gap: 1rem;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    .form-field-radio label {
+      border-radius: 5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .form-field-radio label::before {
+      -webkit-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+      display: block;
+      border-radius: 50%;
+      padding: 5px;
+      content: "";
+      position: absolute;
+      background-color: white;
+      -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 8, 0.5);
+      box-shadow: 0px 0px 5px rgba(0, 0, 8, 0.5);
+      border: 3px solid white;
+    }
+
+    .form-field-radio input {
+      display: none;
+    }
+
+    .form-field-radio input:checked~label::before {
+      background-color: var(--accent-color);
+    }
+
+    .form-field-radio span {
+      padding-left: 2rem;
+    }
+
+    #previous-button {
+      visibility: hidden;
+    }
+
+    #submit-button {
+      display: none;
+    }
+
+    .disqualifyPage {
+      margin: 1.5rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      justify-content: center;
+    }
+
+    /*# sourceMappingURL=forthStyle.css.map */
+  </style>
+</head>
+
+<body>
+  <form action="">
+    <div class="container">
+      <div class="survey-container">
+
+        <div class="hero-card">
+          <div class="logo-image">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/highlevel-backend.appspot.com/o/location%2FFOVbbolyOBHto01z0hbp%2Fform%2FpjK0MJ1oGMy3GFpa3aJU%2F7423fbe3-7b40-48f3-9505-4536d806d7be.png?alt=media&amp;token=8aa339eb-9c78-4a4a-bac4-19d20bf86a9d"
+              alt="LogoImage">
+          </div>
+          <h2 class="question-heading">Storm, Wind, or Hail damage? <br> Our team is here and ready to help!</h2>
+          <!-- <h3>Enter your Zip Code to see if your neighborhood is approved</h3> -->
+          <!-- <input type="text" placeholder="Enter zip code" name="zipcode"> -->
+          <!-- <span class="error" id="zipcode-error"></span> -->
+        </div>
+        <div class="question-list">
+
+          <div class="question hideQuestion" id="question-1">
+            <h3>Do You Own Your Home? *</h3>
+            <div class="radio-container">
+              <div class="form-field-radio">
+                <input type="radio" name="ownHome" id="ownHomeYes" value="Yes, I Do">
+                <label for="ownHomeYes"><span>Yes, I Do</span></label>
+              </div>
+              <div class="form-field-radio">
+                <input type="radio" name="ownHome" id="ownHomeNo" value="No, I Rent">
+                <label for="ownHomeNo"><span>No, I Rent</span></label>
+              </div>
+            </div>
+
+            <span class="error" id="ownHome-error"></span>
+          </div>
+
+          <div class="question hideQuestion" id="question-2">
+            <h3>How do you wish to pay?</h3>
+            <div class="radio-container">
+              <div class="form-field-radio">
+                <input type="radio" name="howDoYouWishToPay" id="iWantMyInsuranceCompanyToPayForItId"
+                  value="I want my insurance company to pay for it">
+                <label for="iWantMyInsuranceCompanyToPayForItId">
+                  <span>I want my insurance company to pay for it</span>
+                </label>
+              </div>
+              <div class="form-field-radio">
+                <input type="radio" name="howDoYouWishToPay" id="monthlyPaymentsId" value="Small monthly payments">
+                <label for="monthlyPaymentsId">
+                  <span>Small monthly payments</span>
+                </label>
+              </div>
+              <div class="form-field-radio">
+                <input type="radio" name="howDoYouWishToPay" id="iWantToPayCashId" value="I want to pay cash">
+                <label for="iWantToPayCashId">
+                  <span>I want to pay cash</span>
+                </label>
+              </div>
+              <div class="form-field-radio">
+                <input type="radio" name="howDoYouWishToPay" id="iDontKnowId" value="I don't know">
+                <label for="iDontKnowId">
+                  <span>I don't know</span>
+                </label>
+              </div>
+            </div>
+
+
+            <span class="error" id="howDoYouWishToPay-error"></span>
+          </div>
+
+          <div class="question hideQuestion" id="question-3">
+            <h2 class="question-heading">What Is Your Street Address?</h2>
+            <input type="text" placeholder="Enter Your Home Address" name="address" id="address">
+            <span class="error" id="address-error"></span>
+          </div>
+
+          <div class="question hideQuestion" id="question-4">
+            <h2 class="question-heading">What Is Your First Name?</h2>
+            <input type="text" placeholder="First Name" name="firstname">
+            <span class="error" id="firstname-error"></span>
+          </div>
+
+          <div class="question hideQuestion" id="question-5">
+            <h2 class="question-heading">And Your Last Name?</h2>
+            <input type="text" placeholder="Last Name" name="lastname">
+            <span class="error" id="lastname-error"></span>
+          </div>
+
+          <div class="question hideQuestion" id="question-6">
+            <h2 class="question-heading">What's The Best Number To Catch You On?</h2>
+            <input type="text" placeholder="Enter your Phone Number" name="phonenumber">
+            <span class="error" id="phonenumber-error"></span>
+          </div>
+
+          <!-- Disqulification page -->
+          <div id="disqualifyPageOwnHome" class="disqualifyPage hideQuestion">
+            <h2>Thank you for reaching out to us! <br>
+            We would love to help you with your roof. <br>
+            Please have your landlord contact our team at <br> 303-770-7663 (ROOF)</h2>
+          </div>
+          <div id="disqualifyPageDescribeHome" class="disqualifyPage hideQuestion">
+            <h2>Thank you for reaching out. <br>
+            We would love to help you with your roof. <br>
+            please have your property manager contact us at 303-770-7663</h2>
+          </div>
+
+        </div>
+
+        <div class="next-previous-bar">
+          <button id="previous-button" type="button">
+            <strong>
+              &lt;&lt; </strong> Previous</button>
+          <button id="next-button" type="button">Next <strong>&gt;&gt;</strong> </button>
+          <button type="button" id="submit-button">Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+
+  <!-- <script src="main.js"></script> -->
+
+
+  <script>
+    const apiKey = "f2524627-fede-4b7d-b786-dbb0b5838785";
+    const locationUrl = "https://valor.inspectionquiz.com/valor-ty";
+
+    const disqualifyPageOwnHome = document.getElementById("disqualifyPageOwnHome");
+    const disqualifyPageDescribeHome = document.getElementById("disqualifyPageDescribeHome");
+    const questionLength = document.querySelectorAll(".question").length;
+    const nextButton = document.getElementById("next-button");
+    const previousButton = document.getElementById("previous-button");
+    const submitButton = document.getElementById("submit-button");
+    const navigationBar = document.querySelector(".next-previous-bar");
+
+    const showHideQuestion = (hide, show) => {
+      hide.classList.remove("showQuestion");
+      hide.classList.add("hideQuestion");
+      show.classList.remove("hideQuestion");
+      show.classList.add("showQuestion");
+    }
+
+    const hideNavigationBar = () => {
+      navigationBar.classList.remove("showQuestion");
+      navigationBar.classList.add("hideQuestion");
+    }
+
+    const disqualifyUser = (currentQuestion) => {
+      currentQuestion.classList.remove("showQuestion");
+      currentQuestion.classList.add("hideQuestion");
+      if (currentQuestion.id === "question-1") {
+        disqualifyPageOwnHome.classList.remove("hideQuestion");
+        disqualifyPageOwnHome.classList.add("showQuestion");
+      }
+      if (currentQuestion.id === "question-2") {
+        disqualifyPageDescribeHome.classList.remove("hideQuestion");
+        disqualifyPageDescribeHome.classList.add("showQuestion");
+      }
+      hideNavigationBar();
+      // hideNextButton()
+      // hidePreviousButton()
+    }
+
+    const throttleFunction = (func, limit) => {
+      let flag = true;
+      return () => {
+        if (flag) {
+          func();
+          flag = false;
+          setTimeout(() => {
+            flag = true;
+          }, limit);
+        }
+      }
+    }
+
+    const validateEmail = (email) => {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    const validateQuestion = (currentQuestion) => {
+      let count = 0;
+      const form = document.querySelector("form");
+      const formData = new FormData(form);
+      let fieldName;
+      try {
+        fieldName = currentQuestion.querySelector("input").name;
+      } catch (e) {
+        fieldName = currentQuestion.querySelector("select").name;
+      }
+      // const fieldName = currentQuestion.querySelector("input").name;
+      const fieldValue = formData.get(fieldName);
+      const fieldError = document.getElementById(`${fieldName}-error`);
+      if (fieldValue && fieldValue.trim()) {
+        switch (fieldName) {
+          case "ownHome":
+            if (fieldValue == "No, I Rent") {
+              disqualifyUser(currentQuestion);
+              count++;
+            }
+            break;
+            
+          case "email":
+            if (!validateEmail(fieldValue)) {
+              count++;
+              fieldError.innerHTML = "* Please Enter Correct Email";
+
+            } else {
+              fieldError.innerHTML = "";
+            }
+            break;
+        }
+      } else {
+        fieldError.innerHTML = `* Required`;
+        count++;
+      }
+      if (count <= 0) {
+        fieldError.innerHTML = "";
+      }
+
+      return count > 0 ? false : true;
+    }
+
+    const changeQuestion = (e) => {
+      const currentQuestion = document.querySelector(".showQuestion");
+      if (currentQuestion) {
+        const nextQuestion = currentQuestion.nextElementSibling;
+        if (validateQuestion(currentQuestion)) {
+          if (nextQuestion.classList.contains("question")) {
+            const nextQuestionNumber = parseInt(nextQuestion.id.split("-")[1]);
+            if (nextQuestionNumber > 1) {
+              showPreviousButton();
+            }
+            if (nextQuestionNumber === questionLength) {
+              hideNextButton();
+              showSubmitButton();
+            }
+            showHideQuestion(currentQuestion, nextQuestion);
+          }
+        }
+      } else {
+        const heroCard = document.querySelector(".hero-card");
+        heroCard.classList.add("hideQuestion");
+        document.querySelectorAll(".question").forEach((ques, index) => {
+          if (index === 0) {
+            ques.classList.remove("hideQuestion");
+            ques.classList.add("showQuestion")
+          } else {
+            ques.classList.remove("showQuestion");
+            ques.classList.add("hideQuestion")
+          }
+        })
+      }
+    }
+
+    const previousQuestion = (e) => {
+      const currentQuestion = document.querySelector(".showQuestion");
+      const previousQuestion = currentQuestion.previousElementSibling;
+      if (previousQuestion?.classList.contains("question")) {
+        const previousQuestionNumber = parseInt(previousQuestion.id.split("-")[1]);
+        if (previousQuestionNumber === 1) {
+          hidePreviousButton();
+        }
+        hideSubmitButton();
+        showNextButton();
+        // else if(previousQuestionNumber > 1) {
+        //   showPreviousButton();
+        // }
+        showHideQuestion(currentQuestion, previousQuestion);
+      }
+    }
+
+    const validateForm = (formData) => {
+      for (let [key, value] of formData.entries()) {
+        if (!(value && value.trim())) {
+          flag = false;
+          alert(`Please Fill the whole survey from start!`);
+          return false;
+        }
+      }
+      return true;
+    }
+
+    const submitForm = () => {
+      const form = document.querySelector("form");
+      const formData = new FormData(form);
+      const currentQuestion = document.querySelector(".showQuestion");
+      if (validateQuestion(currentQuestion) && validateForm(formData)) {
+        const data = {
+          "firstName": formData.get("firstname"),
+          "lastName": formData.get("lastname"),
+          "name": `${formData.get("firstname")} ${formData.get("lastname")}`,
+          "phone": formData.get("phonenumber"),
+          "address1": formData.get("address"),
+          "customField": {
+            do_you_own_your_home: formData.get("ownHome"),
+            what_best_describes_your_home: formData.get("bestDescribeYou"),
+            when_do_you_want_to_start_your_project: formData.get("whenWantToStartProject"),
+            how_do_you_wish_to_pay: formData.get("howDoYouWishToPay")
+          },
+          "tags": "roofing leads",
+        }
+
+        const url = `https://rest.gohighlevel.com/v1/contacts`;
+        const header = new Headers();
+        header.append("Content-Type", "application/json");
+        header.append("Authorization", `Bearer ${apiKey}`);
+        const requestSetting = {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: header,
+        }
+        fetch(url, requestSetting)
+          .then(res => res.json())
+          .then(json => {
+            if (!json.contact) {
+              alert("Problem while saving");
+            } else {
+              location.href = locationUrl;
+            }
+          });
+
+      }
+    }
+
+    const closeModal = () => {
+      const modalList = document.querySelector(".modal-list");
+      modalList.style.display = "none";
+    }
+
+    const openLink = (e) => {
+      const modelList = document.querySelector(".modal-list");
+      modelList.style.display = "flex";
+      const id = e.target.id.split("-")[1];
+      const anchorLink = document.getElementById(id);
+      document.querySelectorAll(".modal").forEach(modal => {
+        if (modal.id !== id) {
+          modal.classList.remove("show");
+          modal.classList.add("hide");
+        } else {
+          modal.classList.add("show");
+          modal.classList.remove("hide")
+        }
+      })
+      console.log(e.target.id.split("-")[1]);
+    }
+
+    const showPreviousButton = () => {
+      previousButton.style.visibility = "visible";
+    }
+
+    const hidePreviousButton = () => {
+      previousButton.style.visibility = "hidden";
+    }
+
+    const hideNextButton = () => {
+      nextButton.style.display = "none";
+    }
+
+    const showNextButton = () => {
+      nextButton.style.display = "block";
+    }
+
+    const hideSubmitButton = () => {
+      submitButton.style.display = "none";
+    }
+
+    const showSubmitButton = () => {
+      submitButton.style.display = "block";
+    }
+
+    // $(document).ready(function () {
+    //   var autocomplete;
+    //   autocomplete = new google.maps.places.Autocomplete((document.getElementById("address")), {
+    //     types: ['geocode'],
+    //     componentRestrictions: {
+    //       country: "USA"
+    //     }
+    //   });
+
+    //   google.maps.event.addListener(autocomplete, 'place_changed', function () {
+    //     var near_place = autocomplete.getPlace();
+    //   });
+    // });
+
+    const allRadioInput = document.querySelectorAll("input[type=radio]");
+
+    allRadioInput.forEach(item => item.addEventListener("change", changeQuestion));
+
+    // const allNextButtons = document.querySelectorAll(".next");
+    // allNextButtons.forEach(item => item.addEventListener("click", changeQuestion));
+
+    // const submitButton = document.getElementById("submit-button");
+    const submitThrotlle = throttleFunction(submitForm, 3000);
+    submitButton.addEventListener("click", submitThrotlle);
+
+    // const closeButton = document.querySelectorAll(".close");
+    // closeButton.forEach(btn => btn.addEventListener("click", closeModal));
+
+    // const anchorButtonList = document.querySelectorAll(".anchor-link");
+    // anchorButtonList.forEach(anchor => {
+    //   anchor.addEventListener("click", openLink)
+    // })
+
+
+    nextButton.addEventListener("click", changeQuestion);
+
+
+    previousButton.addEventListener("click", previousQuestion);
+
+
+  </script>
+</body>
+
+</html>

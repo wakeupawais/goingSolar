@@ -5,21 +5,172 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <title>Solar Saving</title>
 </head>
 <body>
-  <div class="main">
-    <div class="container">
-      <nav>
-        <div class="nav-content">
-          <div class="logo">
-            <img src="https://static.leadshook.io/upload/ie/goingsolarlogoasset-white-1575329199922.png" alt="Logo-Image"l>
+  <form id="survey-form">
+    <!-- Main First Section with Navbar -->
+    <div class="main">
+      <div class="container">
+
+        <!-- Navbar -->
+        <nav>
+          <div class="nav-content">
+            <div class="logo">
+              <img src="https://static.leadshook.io/upload/ie/goingsolarlogoasset-white-1575329199922.png" alt="Logo-Image">
+            </div>
+          </div>
+        </nav>
+
+        <!-- Main Section With Survey -->
+        <div class="main-survey-section">
+          <div class="main__heading">
+            <h1>See How Much You Can <br>
+            <strong>Save With Solar</strong></h1>
+            <ul>
+              <li>
+                <span class="number">1</span>
+                <p>Get your energy cost and savings</p>
+              </li>
+              <li>
+                <span class="number">2</span>
+                <p>Compare prices from over 500 installers</p>
+              </li>
+              <li>
+                <span class="number">3</span>
+                <p>Learn about incentives in your area</p>
+              </li>
+              <li>
+                <span class="number">4</span>
+                <p>Get a free report and consultation</p>
+              </li>
+            </ul>
+          </div>
+          <div class="survey">
+            <div class="progress-bar">
+              <div class="progress-bar__progress">
+              </div>
+            </div>
+            <div class="question-list">
+              <div class="question" id="question-1">
+                <p class="question-text">Do you OWN or RENT your home?</p>
+                <div class="radio-box-list">
+                  <label class="radio-box">
+                    <input 
+                      name="electricityBill"
+                      type="radio"
+                      value="Own"
+                    >
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/owner-icon-1637108517080.png" alt="">
+                      <span>Own</span>
+                    </div>
+                  </label>
+                  <label class="radio-box">
+                    <input 
+                      name="electricityBill"
+                      type="radio"
+                      value="Rent"
+                    >
+                    <div class="radio-box__image">
+                      <img src="https://static.leadshook.io/upload/ie/renter-icon-1637108626752.png" alt="">
+                      <span>Rent</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <button type="button" id="submitButton">Submit</button>
+            </div>
           </div>
         </div>
-        
-      </nav>
-      <div></div>
+
+
+      </div>
     </div>
-  </div>
+
+    <div class="section-wrapper">
+      <!-- Second Section Free Solar Quiz -->
+      <div class="second-section">
+        <div class="container">
+          <div class="second-section__container">
+            <div class="second-section__image">
+              <img src="./images/man-with-soler.png" alt="Solar Panel Image">
+            </div>
+  
+            <div class="second-section__content">
+              <h1>Free <strong>Solar</strong> Quiz</h1>
+              <div class="second-section__content__card">
+                <h3>Estimated Earnings Over 10 Years</h3>
+                <ul>
+                  <li>
+                    <span>Power Generated in 10 Years</span>
+                    <span>$52,341</span>
+                  </li>
+                  <li>
+                    <span>Federal Tax Incentives</span>
+                    <span>$17,727</span>
+                  </li>
+                  <li>
+                    <span>Loan Interest Paid</span>
+                    <span>-$9,089</span>
+                  </li>
+                  <li>
+                    <span>Loan Principal Paid</span>
+                    <span>-$21,079</span>
+                  </li>
+                  <li>
+                    <span>Total Value</span>
+                    <span>$39,900</span>
+                  </li>
+                </ul>
+                <button class="calculate-earnings-button">Calculate Your Earning</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="third-section">
+        <div class="container">
+          <div class="third-section-container">
+            <div class="third-section__content">
+              <h1>We've negotiated with over 500 installers to get you the best price.</h1>
+            </div>
+            <div class="third-section__image">
+              <img src="https://goingsolar.com/tips-guide/index_files/us-map.png" alt="Map-Image">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="forth-section">
+        <div class="container">
+          <div class="forth-section__container">
+            <div class="forth-section__content">
+              <h1>When Local Contractors Compete, You Save!</h1>
+              <p>We'll get you matched with the best licensed and insured installers in your area.</p>
+            </div>
+            <button class="calculate-earnings-button" style="min-width: 400px; width: auto;">Calculate Your Earning</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <p>© Copyright 2018 - 2021 | Going Solar LLC</p>
+        </div>
+      </div>
+    </footer>
+  </form>
+
+  <script src="./main.js"></script>
 </body>
 </html>

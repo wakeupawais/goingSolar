@@ -1,13 +1,14 @@
 @import "./breakporintMixin";
 
+
 .container {
-  z-index: 100;
+  // z-index: 100;
   // position: relative;
   width: 90%;
   max-width: 1290px;
-  height: 100%;
+  // height: 100%;
   margin: 0 auto;
-  overflow: hidden;
+  // overflow: hidden;
   
   @include ipad {
     width: 95%;
@@ -17,5 +18,6 @@
     width: 90%;
     max-width: 1290px;
   }
-
 }
+
+

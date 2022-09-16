@@ -219,6 +219,7 @@ nav {
 }
 
 .progress-bar__progress {
+  transition: width 0.2s linear;
   height: 100%;
   background-color: var(--accent-color);
 }

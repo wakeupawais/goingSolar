@@ -27,14 +27,15 @@ const submitForm = (currentQuestionNumber) => {
     "phone": formData.get("phonenumber"),
     "address1": formData.get("address"),
     "postalCode": formData.get("zipcode"),
+    "city": formData.get("city"),
+    "state": formData.get("state"),
     
     "customField": {
       what_is_your_average_electric_bill: formData.get("averageElectricBill"),
       do_you_own_your_home: formData.get("ownHome"),
       what_type_of_home_do_you_have: formData.get("typeOfHome"),
-      is_your_roof_shaded_by_trees: formData.get("roofyShadedByTress"),
-      how_much_sun_does_your_house_get_on_a_daily_basis: formData.get("roofArea"),
-      is_your_credit_score_above_or_below_640: formData.get("creditScore"),
+      when_do_you_start_your_project: formData.get("whenYouStartProject"),
+      how_do_you_wish_to_pay: formData.get("howYouWishToPay"),
     },
   }
 
@@ -114,7 +115,6 @@ const disqualifyUser = (currentQuestion) => {
 
 const validateQuestion = (currentQuestion) => {
   let count = 0;
-  // const form = document.querySelector("survey-form");
   const formData = new FormData(form);
   const nameList = [];
   currentQuestion.querySelectorAll("input").forEach((item) => {
@@ -123,15 +123,7 @@ const validateQuestion = (currentQuestion) => {
   const inputNameList = new Set(nameList);
   console.log(inputNameList, "Input Name List");
 
-  // let fieldName;
-  // try {
-  //   fieldName = currentQuestion.querySelector("input").name;
-  // } catch (e) {
-  //   fieldName = currentQuestion.querySelector("select").name;
-  // }
-  // const fieldName = currentQuestion.querySelector("input").name;
   inputNameList.forEach((fieldName) => {
-    // count = 0;
     const fieldList = document.getElementsByName(fieldName);
     const fieldType = fieldList.length > 1 ? "radio" : "text";
     const fieldValue = formData.get(fieldName);
@@ -199,13 +191,6 @@ const changeQuestion = (e) => {
       if (isLastQuestion(currentQuestion)) {
         const currentQuestionNumber = extractId(currentQuestion.id)
         submitForm(currentQuestionNumber);
-        // const formData = new FormData(form);
-        // const firstname = formData.get("firstname");
-        // thankyouPage.style.display = "flex";
-        // questionList.style.display = "none";
-        // const thankyouHeading = document.querySelector(".thankyou-heading");
-        // thankyouHeading.innerText = `Thanks ${firstname}, Here's What Happens Next... `
-        // moveProgressBar(currentQuestionNumber + 1);
       } 
     }
   }
@@ -224,4 +209,3 @@ const allRadioInput = document.querySelectorAll("input[type=radio]");
 nextButtonsList.forEach(item => item.addEventListener("click", changeQuestion));
 allRadioInput.forEach(item => item.addEventListener("change", changeQuestion));
 moveProgressBar();
-// formSubmitButton.addEventListener("click", submitForm);

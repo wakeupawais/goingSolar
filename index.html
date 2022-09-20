@@ -58,56 +58,56 @@
             </div>
             <div class="question-list">
               <div class="question showQuestion" id="question-1">
-                <p class="question-text">Do you OWN or RENT your home?</p>
+                <p class="question-text">Do You Own Your Home? *</p>
                 <div class="radio-box-list">
                   <label class="radio-box">
                     <input 
                       name="ownHome"
                       type="radio"
-                      value="Own"
+                      value="Yes, I Do"
                     >
                     <div class="radio-box__image">
                       <img src="https://static.leadshook.io/upload/ie/owner-icon-1637108517080.png" alt="">
-                      <span>Own</span>
+                      <span>Yes, I Do</span>
                     </div>
                   </label>
                   <label class="radio-box">
                     <input 
                       name="ownHome"
                       type="radio"
-                      value="Rent"
+                      value="No, I Rent"
                     >
                     <div class="radio-box__image">
                       <img src="https://static.leadshook.io/upload/ie/renter-icon-1637108626752.png" alt="">
-                      <span>Rent</span>
+                      <span>No, I Rent</span>
                     </div>
                   </label>
                   <span id="ownHome-error" class="error"></span>
                 </div>
               </div>
               <div class="question hideQuestion" id="question-2">
-                <p class="question-text">What type of home do you have?</p>
+                <p class="question-text">What best describes your home?</p>
                 <div class="radio-box-list">
                   <label class="radio-box">
                     <input 
                       name="typeOfHome"
                       type="radio"
-                      value="Single-Family Home"
+                      value="Single Family Home"
                     >
                     <div class="radio-box__image">
                       <img src="https://static.leadshook.io/upload/ie/house-1637108791810.png" alt="">
-                      <span>Single-Family Home</span>
+                      <span>Single Family Home</span>
                     </div>
                   </label>
                   <label class="radio-box">
                     <input 
                       name="typeOfHome"
                       type="radio"
-                      value="Condo/Town-home"
+                      value="Town Home Or Duplex"
                     >
                     <div class="radio-box__image">
                       <img src="https://static.leadshook.io/upload/ie/condo-1637109092704.png" alt="">
-                      <span>Condo/Town-home</span>
+                      <span>Town Home Or Duplex</span>
                     </div>
                   </label>
                   <label class="radio-box">
@@ -125,35 +125,52 @@
                 <span class="error" id="typeOfHome-error"></span>
               </div>
               <div class="question hideQuestion" id="question-3">
-                <p class="question-text">What is Your Zipcode?</p>
-                <p class="question-sub-text">We'll check for additional local and federal solar incentives in your area.</p>
-                <div class="text-inputWrapper">
-                  <input type="text" class="text-input" name="zipcode" placeholder="Enter ZIP">
-                  <span class="error" id="zipcode-error"></span>
-                  <button class="next-button" type="button">Next</button>
-                </div>
-              </div>
-              <div class="question hideQuestion" id="question-4">
-                <p class="question-text">What is your average monthly electric bill?</p>
+                <p class="question-text">When do you want to start your project?</p>
                 <div class="radio-box-list">
                   <label class="radio-box">
-                    <input name="averageElectricBill" type="radio" value="0-$150">
-                    <span>0-$150</span>
+                    <input name="whenYouStartProject" type="radio" value="ASAP">
+                    <span>ASAP</span>
                   </label>
                   <label class="radio-box">
-                    <input name="averageElectricBill" type="radio" value="$151-$200">
-                    <span>$151-$200</span>
+                    <input name="whenYouStartProject" type="radio" value="Within a month">
+                    <span>Within a month</span>
                   </label>
                   <label class="radio-box">
-                    <input name="averageElectricBill" type="radio" value="$201-$300">
-                    <span>$201-$300</span>
+                    <input name="whenYouStartProject" type="radio" value="Within 4-6 months">
+                    <span>Within 4-6 months</span>
                   </label>
-                  <label class="radio-box">
-                    <input name="averageElectricBill" type="radio" value="$301+">
+                  <!-- <label class="radio-box">
+                    <input name="whenYouStartProject" type="radio" value="$301+">
                     <span>$301+</span>
-                  </label>
+                  </label> -->
                 </div>
-                <span class="error" id="averageElectricBill-error"></span>
+                <span class="error" id="whenYouStartProject-error"></span>
+              </div>
+              <div class="question hideQuestion" id="question-4">
+                <p class="question-text">How do you wish to pay?</p>
+                <div class="radio-box-list">
+                  <label class="radio-box">
+                    <input name="howYouWishToPay" type="radio" value="I want my insurance company to pay for it">
+                    <span>I want my insurance company to pay for it</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="howYouWishToPay" type="radio" value="Small monthly payments">
+                    <span>Small monthly payments</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="howYouWishToPay" type="radio" value="I want to pay cash">
+                    <span>I want to pay cash</span>
+                  </label>
+                  <label class="radio-box">
+                    <input name="howYouWishToPay" type="radio" value="I don't know">
+                    <span>I don't know</span>
+                  </label>
+                  <!-- <label class="radio-box">
+                    <input name="whenYouStartProject" type="radio" value="$301+">
+                    <span>$301+</span>
+                  </label> -->
+                </div>
+                <span class="error" id="howYouWishToPay-error"></span>
               </div>
               <div class="question hideQuestion" id="question-5">
                 <p class="question-text">Enter your address to find the best results for your area.</p>
@@ -201,51 +218,8 @@
                     <input type="text" class="text-input" name="phonenumber" placeholder="Enter Phone Numner">
                     <span class="error" id="phonenumber-error"></span>
                   </div>
-                  <button class="next-button" type="button">Contine</button>
+                  <button class="next-button" type="button">Submit</button>
                 </div>
-              </div>
-              <div class="question hideQuestion" id="question-8">
-                <p class="question-text" id="congrates-text">Congrats adfsd! You qualify! Answer a few more questions to see if you qualify for the Cash Bonus.</p>
-                <p class="question-sub-text" style="padding-top: 2rem; font-size: 1.2rem">
-                  Is Your Roof Shaded By Trees?
-                </p>
-                <div class="radio-box-list">
-                  <label class="radio-box">
-                    <input name="roofyShadedByTress" type="radio" value="No Shade">
-                    <span>No Shade</span>
-                  </label>
-                  <label class="radio-box">
-                    <input name="roofyShadedByTress" type="radio" value="Slide Shade">
-                      <span>Slide Shade</span>
-                  </label>
-                  <label class="radio-box">
-                    <input name="roofyShadedByTress" type="radio" value="Completely Shaded">
-                      <span>Completely Shaded</span>
-                  </label>
-                </div>
-                <span id="roofyShadedByTress-error" class="error"></span>
-              </div>
-              <div class="question hideQuestion" id="question-9">
-                <p class="question-text">Is Your Credit Score Above or Below 640?</p>
-              
-                <div class="radio-box-list">
-                  <label class="radio-box">
-                    <input name="creditScore" type="radio" value="Yes, it is above 640">
-                    <div class="radio-box__image">
-                      <img src="https://static.leadshook.io/upload/ie/above-640-1621888005919.png" alt="">
-                      <span>Yes, it is above 640</span>
-                    </div>
-                  </label>
-                  <label class="radio-box">
-                    <input name="creditScore" type="radio" value="No, it is below 640">
-                    <div class="radio-box__image">
-                      <img src="https://static.leadshook.io/upload/ie/below-640-1621888022300.png" alt="">
-                      <span>No, it is below 640</span>
-                    </div>
-                  </label>
-                  
-                </div>
-                <span id="creditScore-error" class="error"></span>
               </div>
             </div>
 

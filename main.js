@@ -27,15 +27,18 @@ const submitForm = (currentQuestionNumber) => {
     "phone": formData.get("phonenumber"),
     "address1": formData.get("address"),
     "postalCode": formData.get("zipcode"),
+    
     "customField": {
-      what_is_your_average_electric_bill: formData.get("monthlyElectricBill"),
-      do_you_own_your_home: formData.get("homeOwner"),
-      who_is_your_electricity_provider: formData.get("electricityProvider"),
+      what_is_your_average_electric_bill: formData.get("averageElectricBill"),
+      do_you_own_your_home: formData.get("ownHome"),
+      what_type_of_home_do_you_have: formData.get("typeOfHome"),
+      is_your_roof_shaded_by_trees: formData.get("roofyShadedByTress"),
       how_much_sun_does_your_house_get_on_a_daily_basis: formData.get("roofArea"),
-      // fingerprint_id: fingerprintId,
+      is_your_credit_score_above_or_below_640: formData.get("creditScore"),
     },
   }
 
+  const firstname = formData.get("firstname");
   const url = `https://rest.gohighlevel.com/v1/contacts`;
   const header = new Headers();
   header.append("Content-Type", "application/json");
@@ -46,22 +49,25 @@ const submitForm = (currentQuestionNumber) => {
     headers: header,
   }
   console.log(data, "data from survey");
-    // fetch(url, requestSetting)
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     console.log(json);
-    //     location.href = successUrl;
-    //     if (!json.contact) {
-    //       alert("Problem while saving");
-    //     }
-    //   });
-    const firstname = formData.get("firstname");
-    thankyouPage.style.display = "flex";
-    questionList.style.display = "none";
-    const thankyouHeading = document.querySelector(".thankyou-heading");
-    thankyouHeading.innerText = `Thanks ${firstname}, Here's What Happens Next... `
-    moveProgressBar(currentQuestionNumber + 1);
+    fetch(url, requestSetting)
+      .then(res => res.json())
+      .then(json => {
+        if (!json.contact) {
+          alert("Problem while saving");
+        } else {
+          onSuccessFormSubmit(firstname, currentQuestionNumber)
+        }
+      });
+  
+}
 
+const onSuccessFormSubmit = (firstname, currentQuestionNumber) => {
+  // const firstname = formData.get("firstname");
+  thankyouPage.style.display = "flex";
+  questionList.style.display = "none";
+  const thankyouHeading = document.querySelector(".thankyou-heading");
+  thankyouHeading.innerText = `Thanks ${firstname}, Here's What Happens Next... `
+  moveProgressBar(currentQuestionNumber + 1);
 }
 
 const isLastQuestion = (question) => {
